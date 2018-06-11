@@ -38,7 +38,21 @@ function sendKeysToName(name, text) {
     });
 }
 driver.get('https://www.phptravels.net/').then(function() {
-    return driver.findElement(By.xpath("(//a[contains(text(),'My Account')])[2]")).then(function(myAccount) {
+    driver.findElement(By.xpath("//div[@id='collapse']/ul[2]/ul/ul/li/a/img")).then(function(image) {
+        image.getAttribute("alt").then(function(altText) {
+            //console.log(altText);
+            if (altText === "English") {
+                console.log("Test case 1) passed: Site is in English.");
+            }
+            else {
+                console.log("Text case 1) failed: Site is in "+altText+".");
+                driver.quit();
+                process.exit(1);
+            }
+        })
+    })
+}).then(function() {
+    driver.findElement(By.xpath("(//a[contains(text(),'My Account')])[2]")).then(function(myAccount) {
         myAccount.click();
     });
 }).then(function() {
@@ -95,10 +109,10 @@ driver.get('https://www.phptravels.net/').then(function() {
     driver.findElement(By.css("small.go-left.pull-right")).then(function(dateStamp) {
         dateStamp.getText().then(function(text) {
             if (text === "16/12/2014") {
-                console.log("Test passed.");
+                console.log("Test case 2) passed. Date '"+text+"' is correct.");
             }
             else {
-                console.log("Test failed.");
+                console.log("Test case 2) failed. Date '"+text+"' is incorrect.");
             }
         });
     });
