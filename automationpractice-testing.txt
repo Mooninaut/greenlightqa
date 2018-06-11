@@ -1,0 +1,7 @@
+automationpractice.com Exploratory Testing
+
+1. Site uses passwords, but does not support HTTPS.
+Steps to reproduce: Enter https://automationpractice.com/ in any browser.
+Results: A connection error message appears. The site's TLS certificate is for "actualdev.com" and several of its subdomains, not "automationpractice.com".
+
+a
