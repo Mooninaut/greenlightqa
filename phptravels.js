@@ -53,12 +53,12 @@ driver.get('https://www.phptravels.net/').then(function() {
 }).then(function() {
     driver.findElement(By.name("password")).then(function(password) {
         password.sendKeys("demouser", webdriver.Key.ENTER);
-        waitUntilStale(password)
+        waitUntilStale(password);
     })
 }).then(function() {
-    driver.sleep(5000).then(function() {
+    driver.sleep(3000).then(function() {
         driver.findElement(By.css("span.profile-icon")).then(function(profile) {
-            driver.sleep(5000).then(function() {
+            driver.sleep(3000).then(function() {
                 profile.click();
             });
             console.log("Clicked on profile!");
@@ -79,5 +79,16 @@ driver.get('https://www.phptravels.net/').then(function() {
 }).then(function() {
     driver.findElement(By.css("button.updateprofile")).then(function(updateButton) {
         updateButton.click();
+    });
+    driver.sleep(1000);
+}).then(function() {
+    driver.findElement(By.xpath("//a[contains(text(),'Blog')]")).then(function(blogLink) {
+        blogLink.click();
+        waitUntilStale(blogLink);
+    });
+}).then(function() {
+    driver.findElement(By.xpath("//a[contains(text(),'Where to Eat in Rome…')]")).then(function(romeLink) {
+        romeLink.click();
+        waitUntilStale(romeLink);
     });
 });
