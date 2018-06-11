@@ -61,7 +61,7 @@ driver.get('https://www.phptravels.net/').then(function() {
             driver.sleep(3000).then(function() {
                 profile.click();
             });
-            console.log("Clicked on profile!");
+            //console.log("Clicked on profile!");
         });
     });
 }).then(function() {
@@ -90,5 +90,16 @@ driver.get('https://www.phptravels.net/').then(function() {
     driver.findElement(By.xpath("//a[contains(text(),'Where to Eat in Rome…')]")).then(function(romeLink) {
         romeLink.click();
         waitUntilStale(romeLink);
+    });
+}).then(function() {
+    driver.findElement(By.css("small.go-left.pull-right")).then(function(dateStamp) {
+        dateStamp.getText().then(function(text) {
+            if (text === "16/12/2014") {
+                console.log("Test passed.");
+            }
+            else {
+                console.log("Test failed.");
+            }
+        });
     });
 });
