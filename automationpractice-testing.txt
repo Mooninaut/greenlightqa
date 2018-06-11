@@ -15,4 +15,27 @@ Steps to reproduce: Add an address, then add an another address with the exact s
 Result: The user now has two identical addresses.
 Expected: The site rejects exact duplicates and warns the user that the address already exists on their account.
 
+4. Site has multiple warnings on the W3C HTML syntax checker.
+Steps to reproduce: Navigate to https://validator.w3.org/nu/?doc=http%3A%2F%2Fautomationpractice.com%2Findex.php and view the list of warnings.
+Result: There are 26 warnings that the type attribute is unnecessary for JavaScript resources, and one warning that a Section element lacks a heading element.
+Expected: There are no warnings.
 
+5. Site produces error in web console.
+Steps to reproduce: Navigate to http://automationpractice.com/index.php.
+Open the browser development tools and observe the console output.
+Result: The error message appears "Can't Load URL: The domain of this URL isn't included in the app's domains. To be able to load this URL, add all domains and subdomains of your app to the App Domains field in your app settings."
+Expected: There are no error messages in the browser console.
+
+6. Site does not appropriately limit number of items added to cart.
+Steps to reproduce: Navigate to http://automationpractice.com/index.php?id_product=3&controller=product
+Type or paste 999999999999999999 (18 '9's in a row) into the quantity field.
+Click "Add to cart".
+Result: The cart shows 4294967295 items in the cart (2^32 - 1).
+Expected: The site limits quantities to reasonable amounts that are within the realm of possibility, and displays a human-readable explanation of the maximum quantity.
+
+7. Site malfunctions if very large numbers of items are added to the cart.
+Steps to reproduce: Navigate to http://automationpractice.com/index.php?id_product=3&controller=product
+Type or paste 9999999999999999999 (19 '9's in a row) into the quantity field.
+Click "Add to cart".
+Result: Nothing happens.
+Expected: The site limits quantities to reasonable amounts that are within the realm of possibility, and displays a human-readable explanation of the maximum quantity.
