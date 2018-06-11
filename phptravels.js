@@ -18,11 +18,21 @@ function waitUntilStale(element) {
 }
 
 driver.get('https://www.phptravels.net/').then(function() {
-    return driver.findElement(By.xpath("(//a[contains(text(),'My Account')])[2]"));
-}).then(function(myAccount) {
-    return myAccount.click();
+    return driver.findElement(By.xpath("(//a[contains(text(),'My Account')])[2]")).then(function(myAccount) {
+        myAccount.click();
+    });
 }).then(function() {
-    return driver.findElement(By.xpath("(//a[contains(text(),'Login')])[2]"));
-}).then(function(login) {
-    return login.click();
+    driver.findElement(By.xpath("(//a[contains(text(),'Login')])[2]")).then(function(login) {
+        login.click();
+        waitUntilStale(login);
+    });
+}).then(function() {
+    driver.findElement(By.name("username")).then(function(username) {
+        username.sendKeys("user@phptravels.com");
+    });
+}).then(function() {
+    driver.findElement(By.name("password")).then(function(password) {
+        password.sendKeys("demouser", webdriver.Key.ENTER);
+        waitUntilStale(password);
+    });
 });
