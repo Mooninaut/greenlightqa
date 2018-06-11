@@ -1,7 +1,18 @@
 automationpractice.com Exploratory Testing
 
 1. Site uses passwords, but does not support HTTPS.
-Steps to reproduce: Enter https://automationpractice.com/ in any browser.
-Results: A connection error message appears. The site's TLS certificate is for "actualdev.com" and several of its subdomains, not "automationpractice.com".
+Steps to reproduce: Navigate to https://automationpractice.com/ .
+Result: A connection error message appears. The site's TLS certificate is for "actualdev.com" and several of its subdomains, not "automationpractice.com".
+Expected: The site properly supports HTTPS and has a valid certificate.
 
-a
+2. There is a typo in the website blurb.
+Steps to reproduce: Navigate to http://automationpractice.com/index.php and scroll down to the bottom.
+Result: The text "This sample ecommerce website is being used by www.seleniumframework.com website to help pracitce exercises on a real-time ecommerce website."
+Expected: The word "practice" should be spelled correctly.
+
+3. The site does not prevent users from adding duplicate addresses which are identical except for the name.
+Steps to reproduce: Add an address, then add an another address with the exact same street address, city, state, zip code, country and phone number.
+Result: The user now has two identical addresses.
+Expected: The site rejects exact duplicates and warns the user that the address already exists on their account.
+
+
