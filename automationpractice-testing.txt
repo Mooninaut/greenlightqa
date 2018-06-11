@@ -39,3 +39,15 @@ Type or paste 9999999999999999999 (19 '9's in a row) into the quantity field.
 Click "Add to cart".
 Result: Nothing happens.
 Expected: The site limits quantities to reasonable amounts that are within the realm of possibility, and displays a human-readable explanation of the maximum quantity.
+
+8. The "Secure payment" page has no information on it
+Steps to reproduce: Navigate to http://automationpractice.com/index.php?id_cms=5&controller=cms
+Result: The text "Secure payment
+Our secure payment
+
+With SSL
+Using Visa/Mastercard/Paypal
+
+About this services"
+appears. There is no further text, and none of the text is hyperlinked. The text "With SSL" is inaccurate, as the site does not support HTTPS.
+Expected: The secure payment page has accurate, understandable text explaining the security used in transmitting and processing payments.
