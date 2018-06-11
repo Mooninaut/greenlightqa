@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Mooninaut/greenlightqa/issues"
   },
-  "homepage": "https://github.com/Mooninaut/greenlightqa#readme"
+  "homepage": "https://github.com/Mooninaut/greenlightqa#readme",
+  "dependencies" :
+    { "selenium-webdriver" : "3.6.0"
+    }
 }
