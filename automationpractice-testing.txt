@@ -51,3 +51,9 @@ Using Visa/Mastercard/Paypal
 About this services"
 appears. There is no further text, and none of the text is hyperlinked. The text "With SSL" is inaccurate, as the site does not support HTTPS.
 Expected: The secure payment page has accurate, understandable text explaining the security used in transmitting and processing payments.
+
+9. Sorting by price, highest first produces the same result as sorting by price, lowest first. The lowest-priced items are displayed first.
+Steps to reproduce: Navigate to http://automationpractice.com/index.php?id_category=8&controller=category#/
+Select Sort by: "Price: Highest first"
+Result: The items are sorted with the lowest-priced items first.
+Expected: The items are sorted with the highest-priced items first.
