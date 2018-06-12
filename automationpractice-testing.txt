@@ -57,3 +57,19 @@ Steps to reproduce: Navigate to http://automationpractice.com/index.php?id_categ
 Select Sort by: "Price: Highest first"
 Result: The items are sorted with the lowest-priced items first.
 Expected: The items are sorted with the highest-priced items first.
+
+10. Extremely large orders do not complete.
+Steps to reproduce: Add more than one trillion ($1,000,000,000,000) dollars of merchandise to the shopping cart.
+Click on the shopping cart icon.
+Scroll down to "Proceed to checkout" and click on it.
+Click on "Proceed to checkout"
+Check the box "I agree to the terms of service and will adhere to them unconditionally".
+Click on "Proceed to checkout".
+Click "Pay by bank wire" or "Pay by check"
+Click on "I confirm my order".
+Result: An error page "500 Server Error
+
+Oops, something went wrong.
+
+Try to refresh this page or feel free to contact us if the problem persists." appears.
+Expected: If the ordered quantity exceeds the server's capacity, a human-readable error should be displayed, not a generic 500 Server Error.
